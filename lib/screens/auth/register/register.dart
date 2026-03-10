@@ -166,7 +166,11 @@ class Register extends StatelessWidget {
                         //   },
                         // ));
 
-                        Navigator.pop(context);
+                        /// finish current screen and go back to previous screen
+                        // Navigator.pop(context);
+
+                        /// finish current screen and send data back to previous screen
+                        Navigator.pop(context, "Hello from register");
                       },
                   ),
                 ],

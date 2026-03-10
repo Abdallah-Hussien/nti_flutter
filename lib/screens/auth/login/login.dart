@@ -165,7 +165,10 @@ class Login extends StatelessWidget {
                         // ));
 
                         /// named navigation
-                        Navigator.pushNamed(context, '/register');
+                        //Navigator.pushNamed(context, '/register');
+
+                        /// receive data from register screen
+                        move(context);
                       },
                   ),
                 ],
@@ -177,4 +180,12 @@ class Login extends StatelessWidget {
       ),
     );
   }
+}
+
+move(BuildContext context) async {
+  final result = await Navigator.pushNamed(context, '/register');
+  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+    content: Text(result.toString()),
+    action: SnackBarAction(label: 'ok', onPressed: () {}),
+  ));
 }
