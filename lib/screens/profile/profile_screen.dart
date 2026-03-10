@@ -1,4 +1,7 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:nti_flutter/screens/profile/widgets.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -56,7 +59,42 @@ class ProfileScreen extends StatelessWidget {
                       "Close Profile",
                       style: TextStyle(color: Colors.red),
                     )),
-              )
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(
+                    onPressed: () {},
+                    icon: SvgPicture.asset(
+                      'assets/icons/ic_apple.svg',
+                      width: 32,
+                      height: 32,
+                      color: Colors.white,
+                    ),
+                  ),
+                  SizedBox(width: 20),
+                  IconButton(
+                    onPressed: () {},
+                    icon: SvgPicture.asset(
+                      'assets/icons/ic_facebook.svg',
+                      width: 32,
+                      height: 32,
+                    ),
+                  ),
+                  SizedBox(width: 20),
+                  IconButton(
+                    onPressed: () {},
+                    icon: SvgPicture.asset(
+                      'assets/icons/ic_google.svg',
+                      width: 32,
+                      height: 32,
+                    ),
+                  )
+                ],
+              ),
             ],
           ),
         ),
@@ -64,4 +102,3 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 }
-
