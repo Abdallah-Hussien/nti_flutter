@@ -3,8 +3,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:nti_flutter/screens/auth/register/register.dart';
-import 'package:nti_flutter/screens/profile/edit_profile.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -33,14 +31,6 @@ class Login extends StatelessWidget {
               'Welcome Back',
               style: TextStyle(
                 fontSize: 12,
-              ),
-            ),
-            const SizedBox(height: 15),
-            Center(
-              child: SvgPicture.asset(
-                'assets/icons/ic_bannar_login.svg',
-                width: double.infinity,
-                height: 200,
               ),
             ),
             const SizedBox(height: 20),
@@ -112,72 +102,94 @@ class Login extends StatelessWidget {
               ],
             ),
             SizedBox(height: 30),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                IconButton(
-                  onPressed: () {},
-                  icon: SvgPicture.asset(
-                    'assets/icons/ic_apple.svg',
-                    width: 32,
-                    height: 32,
-                  ),
-                ),
-                SizedBox(width: 20),
-                IconButton(
-                  onPressed: () {},
-                  icon: SvgPicture.asset(
-                    'assets/icons/ic_facebook.svg',
-                    width: 32,
-                    height: 32,
-                  ),
-                ),
-                SizedBox(width: 20),
-                IconButton(
-                  onPressed: () {},
-                  icon: SvgPicture.asset(
-                    'assets/icons/ic_google.svg',
-                    width: 32,
-                    height: 32,
-                  ),
-                )
-              ],
-            ),
+            AccountsLogin(),
             SizedBox(height: 20),
-            Center(
-              child: RichText(
-                  text: TextSpan(
-                children: [
-                  TextSpan(
-                    text: "Don't have an account? ",
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  TextSpan(
-                    text: "Sign Up",
-                    style: TextStyle(color: Color(0xFF5DBC5D)),
-                    recognizer: TapGestureRecognizer()
-                      ..onTap = () {
-                        /// simple navigation
-                        // Navigator.push(context, MaterialPageRoute(
-                        //   builder: (context) {
-                        //     return Register();
-                        //   },
-                        // ));
-
-                        /// named navigation
-                        //Navigator.pushNamed(context, '/register');
-
-                        /// receive data from register screen
-                        move(context);
-                      },
-                  ),
-                ],
-              )),
-            ),
+            DoNotHaveAccount(),
             SizedBox(height: 50),
           ],
         ),
       ),
+    );
+  }
+}
+
+class DoNotHaveAccount extends StatelessWidget {
+  const DoNotHaveAccount({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: RichText(
+          text: TextSpan(
+        children: [
+          TextSpan(
+            text: "Don't have an account? ",
+            style: TextStyle(color: Colors.black),
+          ),
+          TextSpan(
+            text: " Sign Up",
+            style: TextStyle(color: Color(0xFF5DBC5D), fontSize: 16),
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                /// simple navigation
+                // Navigator.push(context, MaterialPageRoute(
+                //   builder: (context) {
+                //     return Register();
+                //   },
+                // ));
+
+                /// named navigation
+                //Navigator.pushNamed(context, '/register');
+
+                /// receive data from register screen
+                move(context);
+              },
+          ),
+        ],
+      )),
+    );
+  }
+}
+
+class AccountsLogin extends StatelessWidget {
+  const AccountsLogin({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        IconButton(
+          onPressed: () {},
+          icon: SvgPicture.asset(
+            'assets/icons/ic_apple.svg',
+            width: 32,
+            height: 32,
+          ),
+        ),
+        SizedBox(width: 20),
+        IconButton(
+          onPressed: () {},
+          icon: SvgPicture.asset(
+            'assets/icons/ic_facebook.svg',
+            width: 32,
+            height: 32,
+          ),
+        ),
+        SizedBox(width: 20),
+        IconButton(
+          onPressed: () {},
+          icon: SvgPicture.asset(
+            'assets/icons/ic_google.svg',
+            width: 32,
+            height: 32,
+          ),
+        )
+      ],
     );
   }
 }

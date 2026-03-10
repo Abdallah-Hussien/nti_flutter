@@ -155,8 +155,8 @@ class Register extends StatelessWidget {
                     style: TextStyle(color: Colors.black),
                   ),
                   TextSpan(
-                    text: "Login",
-                    style: TextStyle(color: Color(0xFF5DBC5D)),
+                    text: " Login",
+                    style: TextStyle(color: Color(0xFF5DBC5D), fontSize: 16),
                     recognizer: TapGestureRecognizer()
                       ..onTap = () {
                         /// common mistake
