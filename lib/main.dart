@@ -3,6 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:nti_flutter/app_theme_data.dart';
 import 'package:nti_flutter/data/item.dart';
+import 'package:nti_flutter/navigation/home.dart';
+import 'package:nti_flutter/navigation/login.dart';
+import 'package:nti_flutter/navigation/onboarding.dart';
 import 'package:nti_flutter/screens/auth/login/login.dart';
 import 'package:nti_flutter/screens/auth/register/register.dart';
 import 'package:nti_flutter/screens/home/best_seller.dart';
@@ -17,21 +20,21 @@ class MainWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/',
-      routes: {
-        '/': (context) => Login(),
-        '/register': (context) => Register(),
-        '/home': (context) => Home(),
-        '/bestSeller': (context) {
-          final l = ModalRoute.of(context)!.settings.arguments as List<Item>;
-          return BestSeller(list: l);
-        },
-      },
+      home: Onboarding(),
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.light,
       theme: AppThemeData.lightTheme,
       darkTheme: AppThemeData.darkTheme,
-      // home: Home(),
+
+      // initialRoute: '/',
+      // routes: {
+      //   '/': (context) => Onboarding(),
+      //   '/login': (context) => LoginNavigation(),
+      //   '/home': (context) {
+      //     var args = ModalRoute.of(context)?.settings.arguments as String;
+      //     return HomeNavigation(name: args);
+      //   },
+      // },
     );
   }
 }

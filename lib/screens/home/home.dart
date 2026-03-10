@@ -47,18 +47,16 @@ class HeadingSection extends StatelessWidget {
         )),
         TextButton(
             onPressed: () {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(
-              //     builder: (context) {
-              //       return BestSeller(list: items);
-              //     },
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) {
+                  /// send data through constractor
+                  return BestSeller(list: items);
+                },
 
-              //     /// send data through arguments
-              //     // settings: RouteSettings(arguments: items)
-              //   ),
-              // );
-              Navigator.pushNamed(context, '/bestSeller', arguments: items);
+                /// send data through arguments
+                //settings: RouteSettings(arguments: items)),
+              ));
+              //Navigator.pushNamed(context, '/bestSeller', arguments: items);
             },
             child: Text(
               'See all',
