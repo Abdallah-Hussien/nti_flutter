@@ -13,7 +13,7 @@ class LoginNavigation extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         // automaticallyImplyLeading: false,
-        title: const Text('LoginNavigation'),
+        title: const Text('Login'),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 23),

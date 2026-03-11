@@ -2,14 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:nti_flutter/app_theme_data.dart';
-import 'package:nti_flutter/data/item.dart';
-import 'package:nti_flutter/navigation/home.dart';
-import 'package:nti_flutter/navigation/login.dart';
 import 'package:nti_flutter/navigation/onboarding.dart';
-import 'package:nti_flutter/screens/auth/login/login.dart';
-import 'package:nti_flutter/screens/auth/register/register.dart';
-import 'package:nti_flutter/screens/home/best_seller.dart';
-import 'package:nti_flutter/screens/home/home.dart';
 
 void main() {
   runApp(const MainWidget());
