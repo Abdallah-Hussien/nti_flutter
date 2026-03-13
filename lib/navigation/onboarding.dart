@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:nti_flutter/navigation/home.dart';
 import 'package:nti_flutter/navigation/login.dart';
 
 class Onboarding extends StatelessWidget {
@@ -48,15 +49,12 @@ class Onboarding extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
-                    /// simple navigation
+                    // simple navigation
                     Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return LoginNavigation();
-                        },
-                      ),
-                    );
+                        context,
+                        MaterialPageRoute(
+                            builder: (_) => HomeNavigation(name: 'name')));
+                    // Navigator.pushNamed(context, 'home');
 
                     /// navigation with route name
                   },

@@ -70,18 +70,15 @@ class LoginNavigation extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
                 onPressed: () {
-                  /// simple navigation
-                  Navigator.push(context, MaterialPageRoute(
-                    builder: (context) {
-                      //passing data through constructor
-                      return HomeNavigation(name: 'John Doe');
-                    },
-                    //passing data through arguments
-                    settings: RouteSettings(arguments: 'John Doe'),
-                  ));
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => HomeNavigation(name: 'name'),
+                    ),
+                  );
 
                   /// named navigation
-                  // Navigator.pushNamed(context, '/home');
+                  // Navigator.pushNamed(context, 'login');
                 },
                 style: ElevatedButton.styleFrom(
                   minimumSize: Size(double.infinity, 48),

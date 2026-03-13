@@ -6,6 +6,9 @@ class HomeNavigation extends StatelessWidget {
   const HomeNavigation({super.key, required this.name});
   final String name;
   @override
+
+  // var args = ModalRoute.of(context)?.settings.arguments as String;
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(

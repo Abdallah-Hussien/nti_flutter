@@ -2,7 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:nti_flutter/app_theme_data.dart';
-import 'package:nti_flutter/navigation/onboarding.dart';
+import 'package:nti_flutter/masar/auth/auth.dart';
+import 'package:nti_flutter/masar/intro/splash.dart';
+import 'package:nti_flutter/masar/intro/welcome.dart';
+import 'package:nti_flutter/masar/home/home.dart';
 
 void main() {
   runApp(const MainWidget());
@@ -13,21 +16,23 @@ class MainWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Onboarding(),
+      routes: {
+        'splash': (_) => Splash(),
+        'welcome': (_) => Welcome(),
+        'auth': (context) {
+          var arg = ModalRoute.of(context)?.settings.arguments as bool;
+          return Auth(
+            isLoginScreen: arg,
+          );
+        },
+        'home': (_) => Home()
+      },
+      // home: Login(),
       debugShowCheckedModeBanner: false,
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.dark,
       theme: AppThemeData.lightTheme,
       darkTheme: AppThemeData.darkTheme,
-
-      // initialRoute: '/',
-      // routes: {
-      //   '/': (context) => Onboarding(),
-      //   '/login': (context) => LoginNavigation(),
-      //   '/home': (context) {
-      //     var args = ModalRoute.of(context)?.settings.arguments as String;
-      //     return HomeNavigation(name: args);
-      //   },
-      // },
+      initialRoute: 'splash',
     );
   }
 }
