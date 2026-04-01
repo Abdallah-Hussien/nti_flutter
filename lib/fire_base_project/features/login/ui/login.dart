@@ -1,13 +1,17 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:nti_flutter/navigation/home.dart';
+import 'package:nti_flutter/fire_base_project/core/networking/fire_base_services.dart';
+import 'package:nti_flutter/fire_base_project/features/login/data/user_data_model.dart';
 
 class LoginNavigation extends StatelessWidget {
-  const LoginNavigation({super.key});
-
+  LoginNavigation({super.key});
+  final TextEditingController email = TextEditingController();
+  final TextEditingController password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,6 +42,7 @@ class LoginNavigation extends StatelessWidget {
             Text("Email"),
             const SizedBox(height: 10),
             TextField(
+              controller: email,
               decoration: InputDecoration(
                 hintText: 'example@gmail.com',
                 hintStyle: TextStyle(color: Colors.grey[600]),
@@ -54,10 +59,10 @@ class LoginNavigation extends StatelessWidget {
             Text("Password"),
             const SizedBox(height: 10),
             TextField(
+              controller: password,
               obscureText: true,
-              obscuringCharacter: '*',
               decoration: InputDecoration(
-                hintText: '*********',
+                hintText: 'pasword',
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
@@ -70,15 +75,7 @@ class LoginNavigation extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => HomeNavigation(name: 'name'),
-                    ),
-                  );
-
-                  /// named navigation
-                  // Navigator.pushNamed(context, 'login');
+                  _handleLogin(context);
                 },
                 style: ElevatedButton.styleFrom(
                   minimumSize: Size(double.infinity, 48),
@@ -121,6 +118,28 @@ class LoginNavigation extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  _handleLogin(BuildContext context) async {
+    var result = await FireBaseServices.signIn(
+        userData: UserDataModel(
+            name: email.text.trim(), pasword: password.text.trim()));
+    final snackBar = SnackBar(
+      /// need to set following properties for best effect of awesome_snackbar_content
+      elevation: 0,
+      behavior: SnackBarBehavior.floating,
+      backgroundColor: Colors.transparent,
+      content: AwesomeSnackbarContent(
+        title: 'On Snap!',
+        message: result,
+        /// change contentType to ContentType.success, ContentType.warning or ContentType.help for variants
+        contentType: ContentType.help,
+      ),
+    );
+
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(snackBar);
   }
 }
 
@@ -203,12 +222,4 @@ class AccountsLogin extends StatelessWidget {
       ],
     );
   }
-}
-
-move(BuildContext context) async {
-  final result = await Navigator.pushNamed(context, '/register');
-  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-    content: Text(result.toString()),
-    action: SnackBarAction(label: 'ok', onPressed: () {}),
-  ));
 }

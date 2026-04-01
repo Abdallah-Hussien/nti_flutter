@@ -1,6 +1,5 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 class HomeContent extends StatelessWidget {
@@ -31,37 +30,48 @@ class HomeContent extends StatelessWidget {
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
             ),
             SizedBox(height: 10),
-            GridView.builder(
-              scrollDirection: Axis.vertical,
-              shrinkWrap: true,
-              itemCount: popularProducts.length,
-              padding: EdgeInsets.symmetric(horizontal: 24),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, // number of columns
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 10,
-                childAspectRatio: 3 / 3,
-              ),
-              itemBuilder: (context, index) {
-                return Container(
-                  decoration: BoxDecoration(
-                    color: Colors.grey[300],
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(12),
-                    child: Image(
-                      image: NetworkImage(popularProducts[index]),
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                );
-              },
-            ),
+            PopularProductsGrid(),
             SizedBox(height: 20),
           ],
         ),
       ),
+    );
+  }
+}
+
+class PopularProductsGrid extends StatelessWidget {
+  const PopularProductsGrid({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(
+      scrollDirection: Axis.vertical,
+      shrinkWrap: true,
+      itemCount: popularProducts.length,
+      padding: EdgeInsets.symmetric(horizontal: 24),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2, // number of columns
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        // childAspectRatio: 3 / 3,
+      ),
+      itemBuilder: (context, index) {
+        return Container(
+          decoration: BoxDecoration(
+            color: Colors.grey[300],
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: Image(
+              image: NetworkImage(popularProducts[index]),
+              fit: BoxFit.fill,
+            ),
+          ),
+        );
+      },
     );
   }
 }
@@ -153,7 +163,7 @@ class Category {
   Category({required this.title, required this.icon});
 }
 
-final List<Category> categories = [
+final categories = [
   Category(title: 'Electronics', icon: Icons.electrical_services_outlined),
   Category(title: 'Fashion', icon: Icons.checkroom_outlined),
   Category(title: 'Home & Garden', icon: Icons.grass_outlined),

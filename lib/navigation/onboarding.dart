@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:nti_flutter/navigation/home.dart';
-import 'package:nti_flutter/navigation/login.dart';
+import 'package:nti_flutter/fire_base_project/features/login/ui/login.dart';
 
 class Onboarding extends StatelessWidget {
   const Onboarding({super.key});

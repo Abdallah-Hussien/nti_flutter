@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "8005080628",
+    "project_id": "nti-course-project1",
+    "storage_bucket": "nti-course-project1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:8005080628:android:a77bec7412e40eb1d6dc61",
+        "android_client_info": {
+          "package_name": "com.example.nti_flutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9hm88EOfhFkVJ8yqwv6KQifbk4q_vcZs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
