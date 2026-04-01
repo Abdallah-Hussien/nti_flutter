@@ -1,11 +1,9 @@
-import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 
 import '../../features/login/data/user_data_model.dart';
 
-class FireBaseServices {
-  FireBaseServices._();
+class FireBaseAuthServices {
+  FireBaseAuthServices._();
   static final FirebaseAuth _auth = FirebaseAuth.instance;
 
   static Future<String> signIn({required UserDataModel userData}) async {

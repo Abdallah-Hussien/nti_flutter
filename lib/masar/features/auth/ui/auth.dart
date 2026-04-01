@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:nti_flutter/masar/utils/app_color.dart';
-import 'package:nti_flutter/masar/auth/login_content.dart';
-import 'package:nti_flutter/masar/auth/register_content.dart';
+import 'package:nti_flutter/masar/features/auth/ui/login_content.dart';
+import 'package:nti_flutter/masar/features/auth/ui/register_content.dart';
 
 class Auth extends StatefulWidget {
   Auth({super.key, required this.isLoginScreen});

@@ -5,7 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:nti_flutter/fire_base_project/core/networking/fire_base_services.dart';
+import 'package:nti_flutter/fire_base_project/core/networking/fire_base_auth_services.dart';
 import 'package:nti_flutter/fire_base_project/features/login/data/user_data_model.dart';
 
 class LoginNavigation extends StatelessWidget {
@@ -121,7 +121,7 @@ class LoginNavigation extends StatelessWidget {
   }
 
   _handleLogin(BuildContext context) async {
-    var result = await FireBaseServices.signIn(
+    var result = await FireBaseAuthServices.signIn(
         userData: UserDataModel(
             name: email.text.trim(), pasword: password.text.trim()));
     final snackBar = SnackBar(
@@ -136,7 +136,6 @@ class LoginNavigation extends StatelessWidget {
         contentType: ContentType.help,
       ),
     );
-
     ScaffoldMessenger.of(context)
       ..hideCurrentSnackBar()
       ..showSnackBar(snackBar);
